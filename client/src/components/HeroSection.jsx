@@ -7,12 +7,7 @@
  * - Paleta: Azul Egeo + Crema + Dorado
  */
 
-interface HeroProps {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  backgroundImage: string;
-}
+
 
 export default function HeroSection({
   title = 'Una Semana de Elegancia Silenciosa',

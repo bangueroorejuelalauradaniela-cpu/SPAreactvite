@@ -7,15 +7,7 @@
  * - Paleta: Azul Egeo (#1B4965) + Crema (#F5F1E8)
  */
 
-interface FooterLink {
-  label: string;
-  href: string;
-}
 
-interface FooterSection {
-  title: string;
-  links: FooterLink[];
-}
 
 const footerSections: FooterSection[] = [
   {

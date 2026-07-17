@@ -6,11 +6,6 @@
  * - Paleta: Azul Egeo + Dorado + Crema
  */
 
-interface Benefit {
-  title: string;
-  description: string;
-  icon: string;
-}
 
 const benefits: Benefit[] = [
   {

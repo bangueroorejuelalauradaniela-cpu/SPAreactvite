@@ -10,10 +10,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-interface NavItem {
-  label: string;
-  href: string;
-}
+
 
 const navItems: NavItem[] = [
   { label: 'Inicio', href: '#inicio' },
