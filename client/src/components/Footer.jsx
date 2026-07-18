@@ -1,15 +1,5 @@
-/**
- * Footer Component
- * Design: Elegancia Minimalista con Calidez Orgánica
- * - Fondo azul Egeo con texto crema
- * - Estructura limpia y profesional
- * - Enlaces y información de contacto
- * - Paleta: Azul Egeo (#1B4965) + Crema (#F5F1E8)
- */
-
-
-
-const footerSections: FooterSection[] = [
+import logo from "../assets/logo.png";
+const footerSections = [
   {
     title: 'Producto',
     links: [
@@ -36,7 +26,7 @@ const footerSections: FooterSection[] = [
   },
 ];
 
-const socialLinks: Array<{ name: string; icon: string; href: string }> = [
+const socialLinks = [
   { name: 'Instagram', icon: '📷', href: '#' },
   { name: 'Facebook', icon: '👍', href: '#' },
   { name: 'Twitter', icon: '𝕏', href: '#' },
@@ -54,7 +44,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <img
-                src="/manus-storage/egeobutterfly-logo_f9c6ebd7.png"
+                 src={logo}
                 alt="Egeobutterfly"
                 className="w-8 h-8 bg-primary-foreground rounded-full p-1"
               />
