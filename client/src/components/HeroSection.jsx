@@ -1,20 +1,10 @@
-/**
- * HeroSection Component
- * Design: Elegancia Minimalista con Calidez Orgánica
- * - Imagen hero con gradiente overlay
- * - Tipografía serif elegante para títulos
- * - CTA prominente con efecto hover
- * - Paleta: Azul Egeo + Crema + Dorado
- */
-
-
-
+import heroImage from "../assets/hero.png";
 export default function HeroSection({
-  title = 'Una Semana de Elegancia Silenciosa',
-  subtitle = 'Fragancia que respeta tu espacio personal. Duradera, sofisticada, discreta.',
-  ctaText = 'Descubre Egeobutterfly',
-  backgroundImage = '/manus-storage/egeobutterfly-hero_7a1e701a.png',
-}: Partial<HeroProps> = {}) {
+  title = "Una Semana de Elegancia Silenciosa",
+  subtitle = "Fragancia que respeta tu espacio personal. Duradera, sofisticada, discreta.",
+  ctaText = "Descubre Egeobutterfly",
+  backgroundImage = heroImage,
+}) {
   return (
     <section
       id="inicio"

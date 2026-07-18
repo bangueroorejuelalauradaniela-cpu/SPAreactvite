@@ -1,23 +1,14 @@
-/**
- * Header Component
- * Design: Elegancia Minimalista con Calidez Orgánica
- * - Navegación limpia y sofisticada
- * - Logo minimalista (mariposa)
- * - Paleta: Azul Egeo (#1B4965) con acentos dorados
- * - Transiciones suaves y elegantes
- */
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
 
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-
-
-
-const navItems: NavItem[] = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Producto', href: '#producto' },
-  { label: 'Beneficios', href: '#beneficios' },
-  { label: 'Contacto', href: '#contacto' },
+const navItems = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Producto", href: "#producto" },
+  { label: "Beneficios", href: "#beneficios" },
+  { label: "Contacto", href: "#contacto" },
 ];
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,9 +23,9 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img
-            src="/manus-storage/egeobutterfly-logo_f9c6ebd7.png"
-            alt="Egeobutterfly Logo"
-            className="w-10 h-10"
+            src={logo}
+             alt="Egeobutterfly Logo"
+             className="w-10 h-10"
           />
           <span className="text-2xl font-serif font-bold text-primary">
             Egeobutterfly
