@@ -58,7 +58,7 @@ export default function ProductShowcase() {
               Una innovación en el mundo de las fragancias personales. Nuestra fórmula exclusiva combina tecnología de liberación sostenida con ingredientes naturales premium para ofrecerte una experiencia olfativa incomparable.
             </p>
 
-            /* Key Stats */
+            
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-muted p-4 rounded-lg">
                 <div className="text-2xl font-bold text-primary">7 días</div>
