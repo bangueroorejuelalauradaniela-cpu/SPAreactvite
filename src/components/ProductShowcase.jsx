@@ -36,7 +36,6 @@ export default function ProductShowcase() {
           </p>
         </div>
 
-        /* Product Display */
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
           /* Product Image */
           <div className="flex justify-center">
@@ -71,14 +70,14 @@ export default function ProductShowcase() {
               </div>
             </div>
 
-            /* CTA */
+           
             <button className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-opacity-90 transition-all duration-200 w-full md:w-auto">
               Comprar Ahora
             </button>
           </div>
         </div>
 
-        /* Benefits Grid */
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit) => (
             <div
