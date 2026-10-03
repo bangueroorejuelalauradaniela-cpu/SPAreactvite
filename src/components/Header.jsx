@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const navItems = [
@@ -8,7 +9,6 @@ const navItems = [
   { label: "Beneficios", href: "#beneficios" },
   { label: "Contacto", href: "#contacto" },
 ];
-
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,8 +24,8 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <img
             src={logo}
-             alt="Egeobutterfly Logo"
-             className="w-10 h-10"
+            alt="Egeobutterfly Logo"
+            className="w-10 h-10"
           />
           <span className="text-2xl font-serif font-bold text-primary">
             Egeobutterfly
@@ -43,14 +43,21 @@ export default function Header() {
               {item.label}
             </a>
           ))}
+
+          <Link
+            to="/favoritos"
+            className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+          >
+             Favoritos
+          </Link>
         </div>
 
-        {/* CTA Button - Desktop */}
+        
         <button className="hidden md:block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold">
           Comprar Ahora
         </button>
 
-        {/* Mobile Menu Button */}
+        
         <button
           onClick={toggleMenu}
           className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
@@ -64,7 +71,7 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
+      
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-border">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
@@ -78,6 +85,15 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+
+            <Link
+              to="/favoritos"
+              className="text-foreground hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+               Favoritos
+            </Link>
+
             <button className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold">
               Comprar Ahora
             </button>
@@ -87,3 +103,4 @@ export default function Header() {
     </header>
   );
 }
+
