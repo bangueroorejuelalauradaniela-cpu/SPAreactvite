@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const navItems = [
-  { label: "Inicio", href: "#inicio" },
   { label: "Producto", href: "#producto" },
   { label: "Beneficios", href: "#beneficios" },
   { label: "Contacto", href: "#contacto" },
@@ -20,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
+        
         <div className="flex items-center gap-3">
           <img
             src={logo}
@@ -32,26 +31,32 @@ export default function Header() {
           </span>
         </div>
 
-        {/* Desktop Navigation */}
+        
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-            >
-              {item.label}
-            </a>
-          ))}
+  <Link
+    to="/"
+    className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+  >
+    Inicio
+  </Link>
 
-          <Link
-            to="/favoritos"
-            className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-          >
-             Favoritos
-          </Link>
-        </div>
+  {navItems.map((item) => (
+    <a
+      key={item.label}
+      href={item.href}
+      className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+    >
+      {item.label}
+    </a>
+  ))}
 
+  <Link
+    to="/favoritos"
+    className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+  >
+     Favoritos
+  </Link>
+</div>
         
         <button className="hidden md:block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold">
           Comprar Ahora

@@ -26,7 +26,7 @@ export default function ProductShowcase() {
   return (
     <section id="producto" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        /* Section Title */
+        
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
             El Producto
@@ -37,7 +37,7 @@ export default function ProductShowcase() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-          /* Product Image */
+          
           <div className="flex justify-center">
             <div className="relative w-full max-w-sm">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-2xl" />
@@ -49,7 +49,7 @@ export default function ProductShowcase() {
             </div>
           </div>
 
-          /* Product Info */
+          
           <div className="flex flex-col gap-6">
             <h3 className="text-3xl font-serif font-bold text-primary">
               Loción Técnica Egeobutterfly

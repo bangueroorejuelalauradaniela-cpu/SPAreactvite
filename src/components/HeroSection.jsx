@@ -10,7 +10,7 @@ export default function HeroSection({
       id="inicio"
       className="relative w-full h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
+      
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{

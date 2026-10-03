@@ -37,10 +37,10 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* Main Footer Content */}
+      
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand Section */}
+          
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <img
@@ -55,7 +55,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Footer Links Sections */}
+          
           {footerSections.map((section) => (
             <div key={section.title} className="flex flex-col gap-4">
               <h3 className="font-semibold text-lg">{section.title}</h3>
@@ -75,17 +75,17 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Divider */}
+        
         <div className="border-t border-primary-foreground/20 py-8" />
 
-        {/* Bottom Section */}
+        
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Copyright */}
+          
           <p className="text-sm opacity-80">
             © {currentYear} Egeobutterfly. Todos los derechos reservados.
           </p>
 
-          {/* Social Links */}
+          
           <div className="flex gap-6">
             {socialLinks.map((social) => (
               <a
