@@ -1,3 +1,5 @@
+
+import { Link } from "react-router-dom";
 import { useFavorites } from "../context/FavoritesContext";
 
 export default function Favorites() {
@@ -6,7 +8,7 @@ export default function Favorites() {
   const totalProducts = favorites.length;
 
   const totalValue = favorites.reduce(
-    (total, product) => total + (product.price || 0),
+    (total, product) => total + (Number(product.price) || 0),
     0
   );
 
@@ -14,10 +16,10 @@ export default function Favorites() {
     <section className="min-h-screen bg-muted/30 px-4 py-12">
       <div className="container mx-auto max-w-6xl">
 
-        {/* Header de favoritos */}
+        {/* Encabezado */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-serif font-bold text-primary mb-3">
-             Mis Favoritos
+            Mis Favoritos
           </h1>
 
           <p className="text-foreground/70">
@@ -44,30 +46,37 @@ export default function Favorites() {
               </p>
 
               <p className="text-2xl font-bold text-primary">
-                ${totalValue.toLocaleString("es-CO")}
+                {totalValue > 0
+                  ? `$${totalValue.toLocaleString("es-CO")}`
+                  : "Precio por definir"}
               </p>
             </div>
           </div>
         )}
 
-        
+        {/* Estado vacío o productos favoritos */}
         {favorites.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-sm p-10 text-center max-w-xl mx-auto">
-            <div className="text-5xl mb-4">
-            
+            <div className="text-5xl mb-4" aria-hidden="true">
+              ♡
             </div>
 
             <h2 className="text-2xl font-semibold mb-3">
               Aún no tienes favoritos
             </h2>
 
-            <p className="text-foreground/60">
+            <p className="text-foreground/60 mb-6">
               Explora nuestros productos y guarda los que más te gusten.
             </p>
+
+            <Link
+              to="/catalogo"
+              className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-opacity-90 transition-all"
+            >
+              Explorar catálogo
+            </Link>
           </div>
         ) : (
-
-          /* Lista de favoritos */
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {favorites.map((product) => (
               <article
@@ -79,7 +88,10 @@ export default function Favorites() {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
+                    onError={(event) => {
+                      event.currentTarget.style.visibility = "hidden";
+                    }}
                   />
                 </div>
 
@@ -97,15 +109,18 @@ export default function Favorites() {
                     )}
 
                     <p className="text-lg font-bold">
-                      ${product.price?.toLocaleString("es-CO")}
+                      {Number(product.price) > 0
+                        ? `$${Number(product.price).toLocaleString("es-CO")}`
+                        : "Precio por definir"}
                     </p>
                   </div>
 
                   <button
+                    type="button"
                     onClick={() => toggleFavorite(product)}
                     className="mt-5 w-full px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
-                     Quitar de favoritos
+                    Quitar de favoritos
                   </button>
                 </div>
               </article>
@@ -116,4 +131,3 @@ export default function Favorites() {
     </section>
   );
 }
-

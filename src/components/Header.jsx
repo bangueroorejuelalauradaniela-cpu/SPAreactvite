@@ -1,72 +1,70 @@
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const navItems = [
-  { label: "Producto", href: "#producto" },
-  { label: "Beneficios", href: "#beneficios" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", to: "/" },
+  { label: "Catálogo", to: "/catalogo" },
+  { label: "Favoritos", to: "/favoritos" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
+
+  const getLinkClass = ({ isActive }) =>
+    `font-medium transition-colors duration-200 ${
+      isActive
+        ? "text-primary font-bold"
+        : "text-foreground hover:text-primary"
+    }`;
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        
-        <div className="flex items-center gap-3">
+       
+        <Link
+          to="/"
+          className="flex items-center gap-3"
+          onClick={closeMenu}
+        >
           <img
             src={logo}
             alt="Egeobutterfly Logo"
             className="w-10 h-10"
           />
+
           <span className="text-2xl font-serif font-bold text-primary">
             Egeobutterfly
           </span>
-        </div>
+        </Link>
 
         
         <div className="hidden md:flex items-center gap-8">
-  <Link
-    to="/"
-    className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-  >
-    Inicio
-  </Link>
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === "/"}
+              className={getLinkClass}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
 
-  {navItems.map((item) => (
-    <a
-      key={item.label}
-      href={item.href}
-      className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-    >
-      {item.label}
-    </a>
-  ))}
-
-  <Link
-    to="/favoritos"
-    className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-  >
-     Favoritos
-  </Link>
-</div>
-        
-        <button className="hidden md:block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold">
-          Comprar Ahora
-        </button>
-
-        
+       
         <button
-          onClick={toggleMenu}
+          type="button"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
-          aria-label="Toggle menu"
+          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? (
             <X className="w-6 h-6 text-primary" />
@@ -81,31 +79,21 @@ export default function Header() {
         <div className="md:hidden bg-white border-t border-border">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                className={({ isActive }) =>
+                  `${getLinkClass({ isActive })} py-2`
+                }
+                onClick={closeMenu}
               >
                 {item.label}
-              </a>
+              </NavLink>
             ))}
-
-            <Link
-              to="/favoritos"
-              className="text-foreground hover:text-primary transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-               Favoritos
-            </Link>
-
-            <button className="w-full px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold">
-              Comprar Ahora
-            </button>
           </div>
         </div>
       )}
     </header>
   );
 }
-
