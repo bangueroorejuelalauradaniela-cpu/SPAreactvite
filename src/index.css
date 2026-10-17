@@ -1,129 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 @import "tailwindcss";
 
-html{
-    scroll-behavior:smooth;
+/* ========================================
+   1. IDENTIDAD VISUAL DE EGEOButterfly
+======================================== */
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-primary: #702638;
+  --color-primary-foreground: #ffffff;
+
+  --color-background: #faf7f2;
+  --color-foreground: #282321;
+
+  --color-muted: #f0e8df;
+  --color-muted-foreground: #786d68;
+
+  --color-border: #e8ddd5;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ========================================
+   2. ESTILOS GENERALES
+======================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    background:linear-gradient(
-    160deg,
-    rgba(255,244,248,1) 0%,
-    rgba(255,235,242,.95) 40%,
-    rgba(255,248,250,1) 100%);
-
-    color:#4d3b43;
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,h2,h3,h4{
+/* ========================================
+   3. TIPOGRAFÍA
+======================================== */
 
-    font-family:'DM Serif Display',serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-img{
-
-    max-width:100%;
-    display:block;
+p {
+  line-height: 1.75;
 }
 
-.container{
-
-    width:min(1200px,90%);
-    margin:auto;
+a {
+  text-decoration: none;
 }
 
-.btn{
+/* ========================================
+   4. IMÁGENES
+======================================== */
 
-    padding:14px 28px;
-
-    border-radius:50px;
-
-    border:none;
-
-    background:linear-gradient(
-    135deg,
-    rgb(255,140,185),
-    rgb(255,102,163));
-
-    color:rgb(189, 113, 113);
-
-    font-weight:600;
-
-    transition:.35s;
+img {
+  max-width: 100%;
 }
 
-.btn:hover{
+/* ========================================
+   5. SELECCIÓN DE TEXTO
+======================================== */
 
-    transform:translateY(-4px);
-
-    box-shadow:0 15px 35px rgba(255,120,170,.35);
+::selection {
+  background-color: #702638;
+  color: #ffffff;
 }
 
-.card{
+/* ========================================
+   6. BARRA DE DESPLAZAMIENTO
+======================================== */
 
-    background:rgb(216, 24, 174);
-
-    border-radius:25px;
-
-    padding:25px;
-
-    box-shadow:
-    0 15px 40px rgba(255,182,193,.25);
-
-    transition:.35s;
+html {
+  scrollbar-color: #b58b91 #faf7f2;
+  scrollbar-width: thin;
 }
 
-.card:hover{
+/* ========================================
+   7. ACCESIBILIDAD Y MOVIMIENTO
+======================================== */
 
-    transform:translateY(-8px);
-
+:focus-visible {
+  outline: 2px solid #702638;
+  outline-offset: 4px;
 }
 
-.section{
-
-    padding:90px 0;
-}
-
-.grid{
-
-    display:grid;
-
-    gap:35px;
-}
-
-.flex-center{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-}
-
-.hero-bg{
-
-background:
-radial-gradient(circle at top left,
-rgba(255,192,203,.40),
-transparent 45%),
-
-radial-gradient(circle at bottom right,
-rgba(255,182,193,.35),
-transparent 40%),
-
-linear-gradient(
-135deg,
-#fff6fa,
-#ffe7ef);
-
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
