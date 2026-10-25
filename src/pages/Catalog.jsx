@@ -121,7 +121,7 @@ console.log("Lista de productos:", products);
                           : "border-border text-primary hover:bg-muted"
                       }`}
                     >
-                      {favorite ? "♥ En favoritos" : "♡ Agregar a favoritos"}
+                      {favorite ? "En favoritos" : "Agregar a favoritos"}
                     </button>
                   </div>
                 </article>

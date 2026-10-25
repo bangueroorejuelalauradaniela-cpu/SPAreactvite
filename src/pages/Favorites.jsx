@@ -16,7 +16,7 @@ export default function Favorites() {
     <section className="min-h-screen bg-muted/30 px-4 py-12">
       <div className="container mx-auto max-w-6xl">
 
-        {/* Encabezado */}
+        
         <div className="text-center mb-10">
           <h1 className="text-4xl font-serif font-bold text-primary mb-3">
             Mis Favoritos
@@ -26,8 +26,23 @@ export default function Favorites() {
             Guarda aquí los productos que más te gustan.
           </p>
         </div>
+        <div className="flex flex-wrap justify-center gap-4 mb-10">
+  <Link
+    to="/catalogo"
+    className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition"
+  >
+    ← Volver al catálogo
+  </Link>
 
-        {/* Resumen */}
+  <Link
+    to="/"
+    className="inline-block px-6 py-3 border border-primary text-primary rounded-lg hover:bg-muted transition"
+  >
+    Ir al inicio
+  </Link>
+</div>
+
+        
         {favorites.length > 0 && (
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-10">
             <div className="bg-white rounded-xl shadow-sm px-6 py-4 text-center">
@@ -54,7 +69,7 @@ export default function Favorites() {
           </div>
         )}
 
-        {/* Estado vacío o productos favoritos */}
+       
         {favorites.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-sm p-10 text-center max-w-xl mx-auto">
             <div className="text-5xl mb-4" aria-hidden="true">
@@ -95,7 +110,7 @@ export default function Favorites() {
                   />
                 </div>
 
-                {/* Información */}
+                
                 <div className="flex-1 p-5 flex flex-col justify-between">
                   <div>
                     <h2 className="text-xl font-semibold text-primary mb-2">

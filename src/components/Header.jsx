@@ -84,9 +84,9 @@ export default function Header() {
                 to={item.to}
                 end={item.to === "/"}
                 className={({ isActive }) =>
-                  `${getLinkClass({ isActive })} py-2`
-                }
-                onClick={closeMenu}
+                `${getLinkClass({ isActive })} py-2`
+                  }
+                  onClick={closeMenu}
               >
                 {item.label}
               </NavLink>
