@@ -7,7 +7,7 @@ const { verificarToken } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// REGISTRO
+
 router.post("/register", async (req, res) => {
   try {
     const { nombre, email, password } = req.body;
@@ -136,7 +136,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-const { verificarToken } = require("../middleware/authMiddleware");
 
 router.get("/perfil", verificarToken, async (req, res) => {
   try {
@@ -160,6 +159,5 @@ router.get("/perfil", verificarToken, async (req, res) => {
     });
   }
 });
-
 
 module.exports = router;
