@@ -104,7 +104,7 @@ export default function Favorites() {
                       />
                     </div>
 
-                    {/* Información */}
+                    
                     <div className="flex-1 p-5 flex flex-col justify-between">
                       <div>
                         <h2 className="text-xl font-semibold text-primary mb-2">
@@ -123,7 +123,7 @@ export default function Favorites() {
                             : "Precio por definir"}
                         </p>
 
-                        {/* Selector de cantidad */}
+                        
                         <div className="mt-5">
                           <p className="text-sm font-medium mb-2">
                             Cantidad
@@ -176,7 +176,7 @@ export default function Favorites() {
               })}
             </div>
 
-            {/* Resumen de compra */}
+           
             <div className="bg-white rounded-2xl shadow-sm p-6 max-w-xl mx-auto">
               <h2 className="text-2xl font-serif font-bold text-primary mb-6 text-center">
                 Resumen de compra

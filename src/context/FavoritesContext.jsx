@@ -1,3 +1,4 @@
+
 import { createContext, useContext, useState } from "react";
 
 const FavoritesContext = createContext();
@@ -17,12 +18,46 @@ export function FavoritesProvider({ children }) {
         );
       }
 
-      return [...currentFavorites, product];
+      return [
+        ...currentFavorites,
+        { ...product, quantity: 1 },
+      ];
     });
   };
 
   const isFavorite = (productId) => {
-    return favorites.some((favorite) => favorite.id === productId);
+    return favorites.some(
+      (favorite) => favorite.id === productId
+    );
+  };
+
+  const increaseQuantity = (productId) => {
+    setFavorites((currentFavorites) =>
+      currentFavorites.map((product) =>
+        product.id === productId
+          ? {
+              ...product,
+              quantity: (Number(product.quantity) || 1) + 1,
+            }
+          : product
+      )
+    );
+  };
+
+  const decreaseQuantity = (productId) => {
+    setFavorites((currentFavorites) =>
+      currentFavorites.map((product) =>
+        product.id === productId
+          ? {
+              ...product,
+              quantity: Math.max(
+                1,
+                (Number(product.quantity) || 1) - 1
+              ),
+            }
+          : product
+      )
+    );
   };
 
   return (
@@ -31,6 +66,8 @@ export function FavoritesProvider({ children }) {
         favorites,
         toggleFavorite,
         isFavorite,
+        increaseQuantity,
+        decreaseQuantity,
       }}
     >
       {children}
